@@ -1,38 +1,30 @@
-import { getRandomInt } from '../src/index.js';
-
-function gameAddition() {
-  const terms = getRandomInt(1, 99);
-  const addends = getRandomInt(1, 99);
-  console.log(`Question: ${terms} + ${addends}`);
-  return terms + addends;
-}
-
-function gameSubtraction() {
-  const subtrahend = getRandomInt(1, 99);
-  const minuend = getRandomInt(1, 99);
-  console.log(`Question: ${subtrahend} - ${minuend}`);
-  return subtrahend - minuend;
-}
-
-function gameMultiplication() {
-  const multiplier = getRandomInt(1, 99);
-  const multiplicand = getRandomInt(2, 9);
-  console.log(`Question: ${multiplier} * ${multiplicand}`);
-  return multiplier * multiplicand;
-}
+import getRandomInt from '../src/getRandomInt.js';
+import palyGame from '../src/index.js';
 
 function gameCalc() {
-  const selectMathOperation = Math.floor(Math.random() * 3);
+  const output = [];
+  const variableA = getRandomInt(1, 99);
+  const variableB = getRandomInt(1, 99);
+  const variableC = getRandomInt(2, 9);
+  const selectMathOperation = getRandomInt(0, 2);
   switch (selectMathOperation) {
     case 0:
-      return gameAddition();
+      output.push(`${variableA} + ${variableB}`);
+      output.push(variableA + variableB);
+      break;
     case 1:
-      return gameSubtraction();
+      output.push(`${variableA} - ${variableB}`);
+      output.push(variableA - variableB);
+      break;
     case 2:
-      return gameMultiplication();
+      output.push(`${variableA} * ${variableC}`);
+      output.push(variableA * variableC);
+      break;
     default:
-      return gameAddition();
+      return ['0 + 0', 0];
   }
+  return output;
 }
+palyGame('What is the result of the expression?', gameCalc);
 
 export default gameCalc;

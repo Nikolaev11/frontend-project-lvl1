@@ -1,6 +1,8 @@
-import { getRandomInt } from '../src/index.js';
+import getRandomInt from '../src/getRandomInt.js';
+import palyGame from '../src/index.js';
 
 function gameProgression() {
+  const output = [];
   const progressionStep = getRandomInt(2, 9);
   const progressionStart = getRandomInt(1, 19);
   const progressionLength = getRandomInt(6, 12);
@@ -15,7 +17,10 @@ function gameProgression() {
       question.push(progressionStart + i * progressionStep);
     }
   }
-  console.log(`Question: ${question.join(' ')}`);
-  return result;
+  output.push(question.join(' '));
+  output.push(result);
+  return output;
 }
+palyGame('What number is missing in the progression?', gameProgression);
+
 export default gameProgression;

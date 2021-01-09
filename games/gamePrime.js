@@ -1,13 +1,19 @@
-import { getRandomInt } from '../src/index.js';
+import getRandomInt from '../src/getRandomInt.js';
+import palyGame from '../src/index.js';
 
 function gamePrime() {
+  const output = [];
   const number = getRandomInt(2, 99);
-  console.log(`Question: ${number}`);
+  output.push(number);
   for (let i = 2; i < number; i += 1) {
     if (number % i === 0) {
-      return 'no';
+      output.push('no');
+      return output;
     }
   }
-  return 'yes';
+  output.push('yes');
+  return output;
 }
+palyGame('Answer "yes" if given number is prime. Otherwise answer "no".', gamePrime);
+
 export default gamePrime;
