@@ -1,4 +1,4 @@
 #!/usr/bin/node
-import gameProgression from '../games/gameProgression.js';
+import gameProgression from '../src/games/gameProgression.js';
 
 gameProgression();

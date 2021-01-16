@@ -1,4 +1,4 @@
 #!/usr/bin/node
-import gameGcd from '../games/gameGcd.js';
+import gameGcd from '../src/games/gameGcd.js';
 
 gameGcd();

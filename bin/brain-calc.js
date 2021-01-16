@@ -1,4 +1,4 @@
 #!/usr/bin/node
-import gameCalc from '../games/gameCalc.js';
+import gameCalc from '../src/games/gameCalc.js';
 
 gameCalc();
