@@ -1,24 +1,26 @@
 import getRandomInt from '../getRandomInt.js';
 import playGame from '../index.js';
 
-const generalQuestion = 'What number is missing in the progression?';
-export default () => {
-  function gameProgression() {
-    const progressionStep = getRandomInt(2, 9);
-    const progressionStart = getRandomInt(1, 19);
-    const progressionLength = getRandomInt(6, 12);
-    const targetStepNum = Math.floor(progressionLength * Math.random());
-    const question = [];
-    let result = '';
-    for (let i = 0; i < progressionLength; i += 1) {
-      if (i === targetStepNum) {
-        question.push('..');
-        result = progressionStart + i * progressionStep;
-      } else {
-        question.push(progressionStart + i * progressionStep);
-      }
+const description = 'What number is missing in the progression?';
+const progressionLength = 10;
+
+const gameProgression = () => {
+  const progressionStart = getRandomInt(1, 19);
+  const progressionStep = getRandomInt(2, 9);
+  const targetStepNum = getRandomInt(0, 9);
+  let question = '';
+  let answer;
+  for (let i = 0; i < progressionLength; i += 1) {
+    if (i === targetStepNum) {
+      question = question.concat('.. ');
+      answer = progressionStart + i * progressionStep;
+    } else {
+      question = question.concat(`${progressionStart + i * progressionStep} `);
     }
-    return [question.join(' '), result.toString()];
   }
-  playGame(generalQuestion, gameProgression);
+  return [question, answer.toString()];
+};
+
+export default () => {
+  playGame(description, gameProgression);
 };

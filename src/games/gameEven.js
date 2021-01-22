@@ -1,15 +1,16 @@
 import getRandomInt from '../getRandomInt.js';
 import playGame from '../index.js';
 
-const generalQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
-export default () => {
-  function checkEven(gamerNum) {
-    return (gamerNum % 2 === 0) ? 'yes' : 'no';
-  }
+const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-  function gameEven() {
-    const gamerNum = getRandomInt(1, 99);
-    return [gamerNum, checkEven(gamerNum)];
-  }
-  playGame(generalQuestion, gameEven);
+const isEven = (question) => ((question % 2 === 0));
+
+const gameEven = () => {
+  const question = getRandomInt(1, 99);
+  const answer = isEven(question) ? 'yes' : 'no';
+  return [question, answer];
+};
+
+export default () => {
+  playGame(description, gameEven);
 };
