@@ -1,9 +1,9 @@
-import getRandomInt from '../getRandomInt.js';
+import { getRandomInt } from '../utils.js';
 import playGame from '../index.js';
 
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const isEven = (question) => ((question % 2 === 0));
+const isEven = (num) => ((num % 2 === 0));
 
 const gameEven = () => {
   const question = getRandomInt(1, 99);
