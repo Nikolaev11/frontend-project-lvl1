@@ -19,7 +19,7 @@ const gameProgression = () => {
     }
   }
   const question = progression.join(' ');
-  return [question, answer];
+  return [question, answer.toString()];
 };
 
 export default () => {
